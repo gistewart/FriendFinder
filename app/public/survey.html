@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Friend Finder</title>
+
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"> -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+</head>
+
+<style>
+    h1 {
+        font-size: 32px;
+    }
+    
+    h3 {
+        font-size: 26px;
+        line-height: 1.5;
+    }
+    
+    label,
+    h4 {
+        font-size: 18px;
+        font-weight: 400;
+    }
+    
+    .btn {
+        border: 1px solid grey;
+        margin-bottom: 30px;
+        color: grey;
+        text-align: left;
+        font-size: 12px;
+        width: 160px;
+        position: relative;
+    }
+    
+    #myInput {
+        padding: 20px;
+        margin-top: -6px;
+        border: 0;
+        border-radius: 0;
+        background: #f1f1f1;
+        color: black;
+    }
+    
+    .caret {
+        position: absolute;
+        top: 12px;
+        right: 10px;
+    }
+</style>
+
+<body>
+
+    <div class="container">
+
+
+        <h1 class="text-left">Survey Questions</h1>
+        <hr>
+
+        <div class="text-left">
+            <h3>About You</h3>
+            <form role="form">
+                <div class="form-group">
+                    <label for="name">Name (Required)</label>
+                    <input type="text" class="form-control" id="name">
+                </div>
+                <div class="form-group">
+                    <label for="image">Link to Photo Image (Required)</label>
+                    <input type="text" class="form-control" id="image">
+                </div>
+                <hr>
+
+                <div class="container">
+                    <h3>Question 1</h3>
+                    <h4>Your minds is always buzzing with unexplored ideas and plans.</h4>
+                    <div class="dropdown">
+                        <button class="btn btn-light dropdown-toggle" type="button" data-toggle="dropdown">Select an Option<span class="caret"></span></button>
+                        <ul class="dropdown-menu">
+                            <input class="form-control" id="myInput" type="text" placeholder="Search..">
+                            <li><a href="#">1 (Strongly Disagree)</a></li>
+                            <li><a href="#">2</a></li>
+                            <li><a href="#">3</a></li>
+                            <li><a href="#">4</a></li>
+                            <li><a href="#">5 (Strongly Agree)</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-block submit">Submit</button>
+            </form>
+
+        </div>
+
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <p><a href="/api/tables">API Friends List</a> | <a href="/api/waitlist">GitHub Repo</a>
+        </div>
+    </footer>
+
+    </div>
+    <script>
+        $(document).ready(function() {
+            $("#myInput").on("keyup", function() {
+                var value = $(this).val().toLowerCase();
+                $(".dropdown-menu li").filter(function() {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            });
+        });
+    </script>
+
+</body>
+
+</html>

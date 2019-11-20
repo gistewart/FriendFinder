@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 
 </head>
 
@@ -31,28 +32,7 @@
     }
     
     .btn {
-        border: 1px solid grey;
-        margin-bottom: 30px;
-        color: grey;
-        text-align: left;
-        font-size: 12px;
-        width: 160px;
-        position: relative;
-    }
-    
-    #myInput {
-        padding: 20px;
-        margin-top: -6px;
-        border: 0;
-        border-radius: 0;
-        background: #f1f1f1;
-        color: black;
-    }
-    
-    .caret {
-        position: absolute;
-        top: 12px;
-        right: 10px;
+        margin-top: 30px;
     }
 </style>
 
@@ -79,18 +59,37 @@
 
                 <div class="container">
                     <h3>Question 1</h3>
-                    <h4>Your minds is always buzzing with unexplored ideas and plans.</h4>
-                    <div class="dropdown">
-                        <button class="btn btn-light dropdown-toggle" type="button" data-toggle="dropdown">Select an Option<span class="caret"></span></button>
-                        <ul class="dropdown-menu">
-                            <input class="form-control" id="myInput" type="text" placeholder="Search..">
-                            <li><a href="#">1 (Strongly Disagree)</a></li>
-                            <li><a href="#">2</a></li>
-                            <li><a href="#">3</a></li>
-                            <li><a href="#">4</a></li>
-                            <li><a href="#">5 (Strongly Agree)</a></li>
-                        </ul>
-                    </div>
+                    <h4>Your mind is always buzzing with unexplored ideas and plans.</h4>
+                    <select class="Q1">
+                        <option value=0>Select an option</option>
+                        <option value=1>1 (Strongly Disagree)</option>
+                        <option value=2>2</option>
+                        <option value=3>3</option>
+                        <option value=4>4</option>
+                        <option value=5>5 (Strongly Agree)</option>
+                    </select>
+
+                    <h3>Question 2</h3>
+                    <h4>Generally speaking, you rely more on your experience than your imagination.</h4>
+                    <select class="Q2">
+                        <option value=0>Select an option</option>
+                        <option value=1>1 (Strongly Disagree)</option>
+                        <option value=2>2</option>
+                        <option value=3>3</option>
+                        <option value=4>4</option>
+                        <option value=5>5 (Strongly Agree)</option>
+                    </select>
+
+                    <h3>Question 3</h3>
+                    <h4>You find it easy to stay relaxed and focused even when there is some pressure.</h4>
+                    <select class="Q3">
+                        <option value=0>Select an option</option>
+                        <option value=1>1 (Strongly Disagree)</option>
+                        <option value=2>2</option>
+                        <option value=3>3</option>
+                        <option value=4>4</option>
+                        <option value=5>5 (Strongly Agree)</option>
+                    </select>
                 </div>
 
                 <button type="submit" class="btn btn-primary btn-block submit">Submit</button>
@@ -108,12 +107,30 @@
 
     </div>
     <script>
+        // Array for user responses
+        let userResponses = [];
+
         $(document).ready(function() {
-            $("#myInput").on("keyup", function() {
-                var value = $(this).val().toLowerCase();
-                $(".dropdown-menu li").filter(function() {
-                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-                });
+            $("select.Q1").change(function() {
+                var q1Answer = $(this).children("option:selected").val();
+                userResponses[0] = q1Answer;
+                console.log(userResponses);
+            });
+        });
+
+        $(document).ready(function() {
+            $("select.Q2").change(function() {
+                var q2Answer = $(this).children("option:selected").val();
+                userResponses[1] = q2Answer;
+                console.log(userResponses);
+            });
+        });
+
+        $(document).ready(function() {
+            $("select.Q3").change(function() {
+                var q3Answer = $(this).children("option:selected").val();
+                userResponses[2] = q3Answer;
+                console.log(userResponses);
             });
         });
     </script>

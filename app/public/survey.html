@@ -32,7 +32,7 @@
     }
     
     .btn {
-        margin-top: 30px;
+        margin: 20px 0px;
     }
 </style>
 
@@ -106,32 +106,54 @@
     </footer>
 
     </div>
-    <script>
-        // Array for user responses
-        let userResponses = [];
 
+    <script type="text/javascript">
         $(document).ready(function() {
+
+            //variable declaration
+            let userResponses = [];
+            let q1Answer = "";
+            let q2Answer = "";
+            let q3Answer = "";
+
+
             $("select.Q1").change(function() {
                 var q1Answer = $(this).children("option:selected").val();
                 userResponses[0] = q1Answer;
                 console.log(userResponses);
             });
-        });
 
-        $(document).ready(function() {
             $("select.Q2").change(function() {
                 var q2Answer = $(this).children("option:selected").val();
                 userResponses[1] = q2Answer;
                 console.log(userResponses);
             });
-        });
 
-        $(document).ready(function() {
             $("select.Q3").change(function() {
                 var q3Answer = $(this).children("option:selected").val();
                 userResponses[2] = q3Answer;
                 console.log(userResponses);
             });
+
+            //When user hits submit
+            $(".submit").on("click", function(event) {
+                event.preventDefault();
+
+                //we grab all the responses
+                var newSurvey = {
+                    name: $("#name").val().trim(),
+                    photo: $("#image").val().trim(),
+                    answers: [userResponses]
+                };
+                console.log(newSurvey);
+
+                $.post("api/friends", newSurvey, function(req, res) {
+                    var newSurvey = req.body;
+
+                })
+
+            });
+
         });
     </script>
 

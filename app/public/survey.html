@@ -101,7 +101,7 @@
 
     <footer class="footer">
         <div class="container">
-            <p><a href="/api/tables">API Friends List</a> | <a href="/api/waitlist">GitHub Repo</a>
+            <p><a href="/api/friends">API Friends List</a> | <a href="https://github.com/gistewart/FriendFinder">GitHub Repo</a>
         </div>
     </footer>
 
@@ -143,12 +143,13 @@
                 var newSurvey = {
                     name: $("#name").val().trim(),
                     photo: $("#image").val().trim(),
-                    answers: [userResponses]
+                    answers: userResponses
                 };
                 console.log(newSurvey);
 
+                //back end
                 $.post("api/friends", newSurvey, function(req, res) {
-                    var newSurvey = req.body;
+                    console.log(res);
 
                 })
 

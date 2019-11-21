@@ -35,6 +35,54 @@ module.exports = function(app) {
         console.log("posting data to array in friends.js")
 
         //code to go here
+        var newSurvey = req.body
+            // console.log(newSurvey);
+
+        let minScore = 40;
+        let sum = 0;
+        let diff = 0;
+
+        for (let i = 0; i < friendsData.length; i++) {
+            // console.log("friendsData length: " + friendsData.length);
+
+            for (let k = 0; k < friendsData[i].answers.length; k++) {
+                // console.log("friendsData answers length for i: " + friendsData[i].answers.length);
+                // console.log("newSurvey: " + newSurvey.answers[0]);
+
+                let num1 = (friendsData[i].answers[k]);
+                console.log("num1: " + num1);
+
+                let num2 = (newSurvey.answers[0][k]);
+                console.log("num2: " + num2);
+
+                let diff = Math.abs(num1 - num2);
+                console.log("Diff: " + diff);
+
+                sum += diff;
+                console.log("Sum:  " + sum);
+
+                console.log("________________________")
+
+            };
+
+            if (sum < minScore) {
+                minScore = sum;
+                console.log("new minScore: " + minScore);
+                bestMatchName = friendsData[i].name;
+                console.log("best match name: " + bestMatchName);
+                bestMatchPhoto = friendsData[i].photo;
+                console.log("best match photo: " + bestMatchPhoto);
+
+            } else {
+                console.log("score not lower");
+            };
+            sum = 0;
+
+            console.log("________________________")
+        };
+
+
+        res.json(newSurvey);
 
     });
 

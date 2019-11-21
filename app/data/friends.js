@@ -5,7 +5,7 @@
 // 
 // ===============================================================================
 
-var surveyData = [{
+var friendsData = [{
         name: "Niall",
         photo: "Niall_photo",
         answers: [5, 3, 1]
@@ -19,8 +19,14 @@ var surveyData = [{
         name: "Liam",
         photo: "Liam_photo",
         answers: [3, 1, 4]
+    },
+    {
+        name: "Louis",
+        photo: "Louis_photo",
+        answers: [2, 4, 1]
     }
 ];
 
+
 // Note how we export the array. This makes it accessible to other files using require.
-module.exports = surveyArray;
+module.exports = friendsData;

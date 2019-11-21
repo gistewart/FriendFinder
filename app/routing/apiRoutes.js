@@ -31,28 +31,26 @@ module.exports = function(app) {
 
     app.post("/api/friends", function(req, res) {
         // Our "server" will respond with match info
-        // req.body is available since we're using the body parsing middleware
-        console.log("posting data to array in friends.js")
 
-        //code to go here
-        var newSurvey = req.body
-            // console.log(newSurvey);
+        var newSurvey = req.body;
+        console.log(newSurvey);
 
+        //best match code to go here
         let minScore = 40;
         let sum = 0;
         let diff = 0;
+        let bestMatch = {};
 
         for (let i = 0; i < friendsData.length; i++) {
             // console.log("friendsData length: " + friendsData.length);
 
             for (let k = 0; k < friendsData[i].answers.length; k++) {
                 // console.log("friendsData answers length for i: " + friendsData[i].answers.length);
-                // console.log("newSurvey: " + newSurvey.answers[0]);
 
                 let num1 = (friendsData[i].answers[k]);
                 console.log("num1: " + num1);
 
-                let num2 = (newSurvey.answers[0][k]);
+                let num2 = (newSurvey.answers[k]);
                 console.log("num2: " + num2);
 
                 let diff = Math.abs(num1 - num2);
@@ -68,10 +66,10 @@ module.exports = function(app) {
             if (sum < minScore) {
                 minScore = sum;
                 console.log("new minScore: " + minScore);
-                bestMatchName = friendsData[i].name;
-                console.log("best match name: " + bestMatchName);
-                bestMatchPhoto = friendsData[i].photo;
-                console.log("best match photo: " + bestMatchPhoto);
+                bestMatch.name = friendsData[i].name;
+                console.log("best match name: " + bestMatch.name);
+                bestMatch.photo = friendsData[i].photo;
+                console.log("best match photo: " + bestMatch.photo);
 
             } else {
                 console.log("score not lower");
@@ -81,8 +79,9 @@ module.exports = function(app) {
             console.log("________________________")
         };
 
+        res.json(bestMatch);
 
-        res.json(newSurvey);
+        friendsData.push(req.body);
 
     });
 

@@ -23,7 +23,7 @@ var friendsData = [{
     {
         name: "Louis",
         photo: "Louis_photo",
-        answers: [2, 4, 1]
+        answers: [3, 4, 4]
     }
 ];
 

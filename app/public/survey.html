@@ -95,6 +95,18 @@
                         <option value=4>4</option>
                         <option value=5>5 (Strongly Agree)</option>
                     </select>
+
+                    <h3>Question 4</h3>
+                    <h4>You rarely do something just out of sheer curiosity.</h4>
+                    <select class="Q4">
+                        <option value=0>Select an option</option>
+                        <option value=1>1 (Strongly Disagree)</option>
+                        <option value=2>2</option>
+                        <option value=3>3</option>
+                        <option value=4>4</option>
+                        <option value=5>5 (Strongly Agree)</option>
+                    </select>
+
                 </div>
 
                 <button type="submit" class="btn btn-primary btn-block submit">Submit</button>
@@ -141,6 +153,7 @@
             let q1Answer = "";
             let q2Answer = "";
             let q3Answer = "";
+            let q4Answer = "";
 
 
             $("select.Q1").change(function() {
@@ -158,6 +171,12 @@
             $("select.Q3").change(function() {
                 var q3Answer = $(this).children("option:selected").val();
                 userResponses[2] = q3Answer;
+                console.log(userResponses);
+            });
+
+            $("select.Q4").change(function() {
+                var q4Answer = $(this).children("option:selected").val();
+                userResponses[3] = q4Answer;
                 console.log(userResponses);
             });
 

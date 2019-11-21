@@ -8,22 +8,22 @@
 var friendsData = [{
         name: "Niall",
         photo: "Niall_photo",
-        answers: [5, 3, 1]
+        answers: [5, 3, 1, 3]
     },
     {
         name: "Harry",
         photo: "Harry_photo",
-        answers: [4, 2, 5]
+        answers: [4, 2, 5, 1]
     },
     {
         name: "Liam",
         photo: "Liam_photo",
-        answers: [3, 1, 4]
+        answers: [3, 1, 4, 5]
     },
     {
         name: "Louis",
         photo: "Louis_photo",
-        answers: [3, 4, 4]
+        answers: [3, 4, 4, 2]
     }
 ];
 

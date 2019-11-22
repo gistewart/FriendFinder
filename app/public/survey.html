@@ -5,8 +5,6 @@
     <meta charset="UTF-8">
     <title>Friend Finder</title>
 
-
-    <!-- For Modal -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src='https://kit.fontawesome.com/a076d05399.js'></script>
@@ -19,27 +17,6 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
 </head>
-
-<style>
-    h1 {
-        font-size: 32px;
-    }
-    
-    h3 {
-        font-size: 26px;
-        line-height: 1.5;
-    }
-    
-    label,
-    h4 {
-        font-size: 18px;
-        font-weight: 400;
-    }
-    
-    .btn {
-        margin: 20px 0px;
-    }
-</style>
 
 <body>
 
@@ -107,6 +84,73 @@
                         <option value=5>5 (Strongly Agree)</option>
                     </select>
 
+                    <h3>Question 5</h3>
+                    <h4>People can rarely upset you.</h4>
+                    <select class="Q5">
+                        <option value=0>Select an option</option>
+                        <option value=1>1 (Strongly Disagree)</option>
+                        <option value=2>2</option>
+                        <option value=3>3</option>
+                        <option value=4>4</option>
+                        <option value=5>5 (Strongly Agree)</option>
+                    </select>
+
+                    <h3>Question 6</h3>
+                    <h4>It is often difficult for you to relate to other people’s feelings.</h4>
+                    <select class="Q6">
+                        <option value=0>Select an option</option>
+                        <option value=1>1 (Strongly Disagree)</option>
+                        <option value=2>2</option>
+                        <option value=3>3</option>
+                        <option value=4>4</option>
+                        <option value=5>5 (Strongly Agree)</option>
+                    </select>
+
+                    <h3>Question 7</h3>
+                    <h4>In a discussion, truth should be more important than people’s sensitivities.</h4>
+                    <select class="Q7">
+                        <option value=0>Select an option</option>
+                        <option value=1>1 (Strongly Disagree)</option>
+                        <option value=2>2</option>
+                        <option value=3>3</option>
+                        <option value=4>4</option>
+                        <option value=5>5 (Strongly Agree)</option>
+                    </select>
+
+                    <h3>Question 8</h3>
+                    <h4>You rarely get carried away by fantasies and ideas.
+                    </h4>
+                    <select class="Q8">
+                        <option value=0>Select an option</option>
+                        <option value=1>1 (Strongly Disagree)</option>
+                        <option value=2>2</option>
+                        <option value=3>3</option>
+                        <option value=4>4</option>
+                        <option value=5>5 (Strongly Agree)</option>
+                    </select>
+
+                    <h3>Question 9</h3>
+                    <h4>You think that everyone’s views should be respected regardless of whether they are supported by facts or not.</h4>
+                    <select class="Q9">
+                        <option value=0>Select an option</option>
+                        <option value=1>1 (Strongly Disagree)</option>
+                        <option value=2>2</option>
+                        <option value=3>3</option>
+                        <option value=4>4</option>
+                        <option value=5>5 (Strongly Agree)</option>
+                    </select>
+
+                    <h3>Question 10</h3>
+                    <h4>You feel more energetic after spending time with a group of people.</h4>
+                    <select class="Q10">
+                        <option value=0>Select an option</option>
+                        <option value=1>1 (Strongly Disagree)</option>
+                        <option value=2>2</option>
+                        <option value=3>3</option>
+                        <option value=4>4</option>
+                        <option value=5>5 (Strongly Agree)</option>
+                    </select>
+
                 </div>
 
                 <button type="submit" class="btn btn-primary btn-block submit">Submit</button>
@@ -145,6 +189,27 @@
         </div>
     </div>
 
+    <style>
+        h1 {
+            font-size: 32px;
+        }
+        
+        h3 {
+            font-size: 26px;
+            line-height: 1.5;
+        }
+        
+        label,
+        h4 {
+            font-size: 18px;
+            font-weight: 400;
+        }
+        
+        .btn {
+            margin: 20px 0px;
+        }
+    </style>
+
     <script type="text/javascript">
         $(document).ready(function() {
 
@@ -154,6 +219,12 @@
             let q2Answer = "";
             let q3Answer = "";
             let q4Answer = "";
+            let q5Answer = "";
+            let q6Answer = "";
+            let q7Answer = "";
+            let q8Answer = "";
+            let q9Answer = "";
+            let q10Answer = "";
 
 
             $("select.Q1").change(function() {
@@ -177,6 +248,42 @@
             $("select.Q4").change(function() {
                 var q4Answer = $(this).children("option:selected").val();
                 userResponses[3] = q4Answer;
+                console.log(userResponses);
+            });
+
+            $("select.Q5").change(function() {
+                var q5Answer = $(this).children("option:selected").val();
+                userResponses[4] = q5Answer;
+                console.log(userResponses);
+            });
+
+            $("select.Q6").change(function() {
+                var q6Answer = $(this).children("option:selected").val();
+                userResponses[5] = q6Answer;
+                console.log(userResponses);
+            });
+
+            $("select.Q7").change(function() {
+                var q7Answer = $(this).children("option:selected").val();
+                userResponses[6] = q7Answer;
+                console.log(userResponses);
+            });
+
+            $("select.Q8").change(function() {
+                var q8Answer = $(this).children("option:selected").val();
+                userResponses[7] = q8Answer;
+                console.log(userResponses);
+            });
+
+            $("select.Q9").change(function() {
+                var q9Answer = $(this).children("option:selected").val();
+                userResponses[8] = q9Answer;
+                console.log(userResponses);
+            });
+
+            $("select.Q10").change(function() {
+                var q10Answer = $(this).children("option:selected").val();
+                userResponses[9] = q10Answer;
                 console.log(userResponses);
             });
 

@@ -1,7 +1,7 @@
 // ===============================================================================
 // LOAD DATA
-// We are linking our routes to "data" sources.
-// These data sources hold arrays of information on friends data.
+// We are linking our routes to a "data" source. 
+// This data source holds an array of information on friends data.
 // ===============================================================================
 
 var friendsData = require("../data/friends");
@@ -11,10 +11,11 @@ var friendsData = require("../data/friends");
 // ===============================================================================
 
 module.exports = function(app) {
+
     // API GET Requests
     // Below code handles when users "visit" a page.
     // When a user visits a link
-    // (ex: localhost:PORT/api/admin... they are shown a JSON of the data in the table)
+    // (ex: localhost:PORT/api/admin... they are shown a JSON of the data)
     // ---------------------------------------------------------------------------
 
     app.get("/api/friends", function(req, res) {
@@ -23,10 +24,9 @@ module.exports = function(app) {
 
     // API POST Requests
     // Below code handles when a user submits a survey and thus submits data to the server.
-    // In each of the below cases, when a user submits form data (a JSON object)
     // ...the JSON is pushed to the array
     // (ex. User fills out a survey... this data is then sent to the server...
-    // Then the server saves the data to the surveyData array)
+    // Then the server saves the data to the friendsData array)
     // ---------------------------------------------------------------------------
 
     app.post("/api/friends", function(req, res) {
@@ -35,7 +35,7 @@ module.exports = function(app) {
         var newSurvey = req.body;
         console.log(newSurvey);
 
-        //best match code to go here
+        //start of match calculation
         let minScore = 40;
         let sum = 0;
         let diff = 0;
@@ -79,8 +79,10 @@ module.exports = function(app) {
             console.log("________________________")
         };
 
+        //best match details returned
         res.json(bestMatch);
 
+        //then just completed survey added to server side array
         friendsData.push(req.body);
 
     });
